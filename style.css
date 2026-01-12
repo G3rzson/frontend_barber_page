@@ -1,95 +1,164 @@
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Global styles */
+html {
+  /* Prevent layout shift when Bootstrap modals toggle body overflow.
+     Keeps scrollbar space reserved so content doesn't jump. */
+  scrollbar-gutter: stable;
 }
 
-:root{
-    --main-color: #ffc107;
+@supports not (scrollbar-gutter: stable) {
+  html {
+    /* Fallback for older browsers: keep a vertical scrollbar gutter. */
+    overflow-y: scroll;
+  }
 }
 
-h1, h2, h4, h5, p, label{
-    color: var(--main-color);
-}
-h2{
-    letter-spacing: 5px;
-}
-.main-page{
-    background: linear-gradient( rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.8) 100%), url(./pics/main-page.jpg);
-    height: 100vh;
-    background-position: center center;
-    background-size: cover; 
-}
-.icon{
-    height: 1rem;
-}
-a:hover{
-    color: yellow !important;
-}
-.logo{
-    width: 200px;
-}
-.md{
-    background-color: var(--main-color);
-}
-.slogen{
-    height: 25vh;
-}
-.text-shadow{
-    text-shadow: 0 0 3px black;
-}
-.font-family{
-    font-family: "Macondo", monospace;
-}
-.page-2{
-    background-color: rgb(10, 10, 10);
-}
-.arrow{
-    width: 30px;
-    height: 60px;
-}
-.carousel-control-prev,
-.carousel-control-next{
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.card{
-    background-color: rgb(121, 121, 121);
-}
-.card-p{
-    color: black;
-}
-.form-control{
-    background-color: rgb(121, 121, 121);
-    border: none;
-    outline: none;
-}
-label:hover{
-    cursor: pointer;
+/* CSS variables */
+:root {
+  --text-color: rgb(255, 193, 7);
+  --text-color-hover: rgb(255, 215, 64);
+  --border-color-focus: rgba(255, 193, 7, 0.5);
+  --font-family: "Macondo", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media (max-width: 380px) {
-    .logo{
-        width: 100px;
-    }
+/* Skip link (keyboard accessibility) */
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: #000;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transform: translateY(-200%) translateX(-50%);
+  transition: transform 160ms ease;
+  z-index: 1100;
+}
+.skip-link:focus {
+  transform: translateY(0) translateX(-50%);
+  outline: none;
+  box-shadow: 0 0 0 0.25rem var(--border-color-focus);
 }
 
-@media (max-width: 480px) {
-    .slogen{
-        margin-top: 5rem;
-    }
+/* font */
+.custom-font {
+  font-family: var(--font-family);
+}
+
+/* main page background */
+.main-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%),
+    url(./pics/main-page.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+
+/* navbar toggler focus */
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem var(--border-color-focus);
+}
+
+/* navbar links */
+.nav-link {
+  color: var(--text-color);
+}
+.nav-link:hover {
+  color: var(--text-color-hover);
+}
+
+/* table */
+.table.table-dark.text-warning {
+  --bs-table-color: var(--bs-warning);
+  --bs-table-striped-color: var(--bs-warning);
+}
+
+/* carousel */
+.carousel {
+  height: 220px;
+}
+.carousel img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/* info */
+.info-arrow {
+  transition: transform 160ms ease;
+}
+
+.info-toggle[aria-expanded="true"] .info-arrow {
+  transform: rotate(180deg);
+}
+
+#contactForm.form-floating > label::after,
+#contactForm .form-floating > label::after {
+  background-color: transparent !important;
+}
+
+#contactForm .form-control {
+  border: 1px solid var(--text-color);
+  caret-color: var(--text-color);
+}
+
+#contactForm .form-control:focus {
+  border-color: var(--text-color);
+  box-shadow: 0 0 0 0.25rem var(--border-color-focus);
+}
+
+#contactForm .form-control::placeholder {
+  color: var(--text-color);
+}
+
+/* Prevent browser autofill from forcing white background (Chrome/Edge/Safari + Firefox) */
+#contactForm input.form-control:-webkit-autofill,
+#contactForm input.form-control:-webkit-autofill:hover,
+#contactForm input.form-control:-webkit-autofill:focus,
+#contactForm textarea.form-control:-webkit-autofill,
+#contactForm textarea.form-control:-webkit-autofill:hover,
+#contactForm textarea.form-control:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-color) !important;
+  caret-color: var(--text-color) !important;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset !important;
+  box-shadow: 0 0 0px 1000px #000 inset !important;
+  transition: background-color 9999s ease-out 0s;
+}
+
+#contactForm input.form-control:-moz-autofill,
+#contactForm textarea.form-control:-moz-autofill {
+  box-shadow: 0 0 0px 1000px #000 inset !important;
+  -moz-text-fill-color: var(--text-color) !important;
+  caret-color: var(--text-color) !important;
+}
+
+#contactForm .form-floating textarea.form-control {
+  min-height: 8rem;
+  height: 8rem;
+  resize: vertical;
+}
+
+/* Responsive */
+@media (min-width: 576px) {
+  .carousel {
+    height: 300px;
+  }
 }
 
 @media (min-width: 768px) {
-    .navbar-nav {
-        margin-left: auto;
-        text-align: end; 
-    }
-    .carousel{
-        width: 600px;
-        margin: 0 auto;
-    }
-    .form{
-        width: 400px;
-    }
+  .carousel {
+    height: 380px;
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel {
+    height: 550px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .carousel {
+    height: 750px;
+  }
 }
