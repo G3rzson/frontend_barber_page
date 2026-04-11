@@ -40,3 +40,9 @@ Simple, responsive barber landing page built with **Bootstrap** + custom CSS.
 
 - Appointment booking system is not yet implemented (currently a placeholder modal)
 - Form submission currently does not send emails / save to backend (UI feedback only)
+
+## 👤 Author
+
+**G3rzson**
+
+- GitHub: [@G3rzson](https://github.com/G3rzson)
