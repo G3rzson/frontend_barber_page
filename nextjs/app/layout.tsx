@@ -2,7 +2,21 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+function resolveSiteUrl() {
+  const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+
+  if (!rawSiteUrl) {
+    return "http://localhost:3000";
+  }
+
+  if (rawSiteUrl.startsWith("http://") || rawSiteUrl.startsWith("https://")) {
+    return rawSiteUrl;
+  }
+
+  return `https://${rawSiteUrl}`;
+}
+
+const siteUrl = resolveSiteUrl();
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
