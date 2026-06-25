@@ -1,52 +1,41 @@
-# BarbeR – Landing Page | Frontend Only
+# Frontend Barber Page Monorepo
 
-Simple, responsive barber landing page built with **Bootstrap** + custom CSS.
+This repository contains multiple implementations of the same barber landing page concept.
+It is structured as a portfolio monorepo to showcase different frontend stacks and architecture styles.
 
-## Technologies
+## Repository Structure
 
-- HTML5
-- CSS3
-- JavaScript (vanilla)
-- Bootstrap 5 (CDN)
+- [nextjs](nextjs): Next.js App Router implementation (TypeScript, Tailwind, Motion).
+- [react](react): Vite + React implementation.
+- [react-native](react-native): React Native / Expo mobile adaptation.
+- [vanilla-js](vanilla-js): Plain HTML/CSS/JavaScript implementation.
 
-## Features
+## Github repository
 
-- Responsive navbar with mobile view
-- Gallery implemented with Bootstrap carousel
-- Services/prices cards using Bootstrap grid
-- FAQ (collapse) with expandable questions
-- Contact form: client-side validation + feedback modal
-- "Back to top" button
+- https://github.com/G3rzson/frontend_barber_page
 
-## Accessibility & UX
+## Tech Overview
 
-- Skip link for keyboard navigation
-- Decorative icons hidden from screen readers (`aria-hidden`)
-- Modals enhanced with `aria-describedby` attributes
-- Scrollbar space maintained when modals open (reduces layout shifts)
+- Next.js
+- React
+- React Native (Expo)
+- TypeScript
+- Tailwind CSS
+- Motion
+- Lucide React
+- Vanilla JavaScript
 
-## Performance
+## Notes
 
-- Gallery images use `loading="lazy"` + `decoding="async"`
+- The repository is portfolio-oriented and focuses on frontend architecture and UI/UX.
+- Some flows are UI demonstrations (for example booking feedback) and may not include backend persistence.
 
-## Running Locally
-
-1. Clone the repository
-2. Open the project folder in VS Code
-3. Install the **Live Server** extension
-4. Right-click on `index.html` and select **Open with Live Server**
-
-## Future Improvements
-
-- Appointment booking system is not yet implemented (currently a placeholder modal)
-- Form submission currently does not send emails / save to backend (UI feedback only)
-
-## License
-
-This project was created for learning and portfolio purposes.
-
-## 👤 Author
+## Author
 
 **G3rzson**
 
 - GitHub: [@G3rzson](https://github.com/G3rzson)
+
+## License
+
+Created for learning and portfolio purposes.
