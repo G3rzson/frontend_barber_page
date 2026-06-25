@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Barber Landing Page – Portfolio Project
 
-## Getting Started
+This project is a modern, single-page barber landing page built for portfolio purposes.
+The focus was on clean visual design, responsive behavior, and interactive UI elements.
 
-First, run the development server:
+## Links
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Live demo:
+- Source code:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Goals
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Build a realistic service-based landing page frontend with Next.js.
+- Create a clear, component-driven architecture.
+- Deliver strong UX with smooth navigation, modal-based booking flow, and micro-animations.
+- Provide a scalable foundation for future backend integration.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- Next.js (App Router)
+- React + TypeScript
+- Tailwind CSS
+- Motion (animations)
+- Lucide React (icons)
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Hero section with strong visual focus.
+- Service list with price and duration.
+- Barber profiles.
+- Work gallery.
+- Opening hours displayed in a semantic table.
+- FAQ section with animated accordion behavior.
+- Contact form with modal feedback.
+- Appointment booking modal with:
+- service selection,
+- barber selection using image cards,
+- timeslot selection,
+- toast feedback after booking action.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Key Technical Decisions
 
-## Deploy on Vercel
+- Reusable components: Header, Modal, Button, Services, Info, Works, Contacts.
+- Centralized static data management in constants/data.ts.
+- Dedicated body scroll lock hook for modal and mobile navigation states.
+- Anchor-based one-page navigation with smooth scrolling.
+- Portal-based modal rendering for stable layering.
+- Motion-driven enter/exit animations for modal and toast UI.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is currently a frontend-focused portfolio project with static data.
+The booking flow is demonstrated on the UI layer only; backend processing is not yet integrated.
+
+## Future Improvements
+
+- Backend API integration for real booking handling.
+- Dynamic appointment availability from a database.
+- Extended form validation and error handling.
+
+## License
+
+This project was created for learning and portfolio purposes.
+
+## Author
+
+**G3rzson**
+
+- GitHub: [@G3rzson](https://github.com/G3rzson)
