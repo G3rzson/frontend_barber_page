@@ -20,13 +20,13 @@ export const BARBERS = [
 ];
 
 export const GALLERY_IMAGES = [
-  { id: 1000, imageUrl: "/works/barber.png" },
-  { id: 2000, imageUrl: "/works/barber_1.png" },
-  { id: 3000, imageUrl: "/works/barber_2.png" },
-  { id: 4000, imageUrl: "/works/barber_3.png" },
-  { id: 5000, imageUrl: "/works/barber_4.png" },
-  { id: 6000, imageUrl: "/works/barber_5.png" },
-  { id: 7000, imageUrl: "/works/barber_6.png" },
+  { id: 1000, imageUrl: "/works/Barber.png" },
+  { id: 2000, imageUrl: "/works/Barber_1.png" },
+  { id: 3000, imageUrl: "/works/Barber_2.png" },
+  { id: 4000, imageUrl: "/works/Barber_3.png" },
+  { id: 5000, imageUrl: "/works/Barber_4.png" },
+  { id: 6000, imageUrl: "/works/Barber_5.png" },
+  { id: 7000, imageUrl: "/works/Barber_6.png" },
 ];
 
 export const OPENING_HOURS = [

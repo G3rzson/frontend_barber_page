@@ -5,8 +5,8 @@ The focus was on clean visual design, responsive behavior, and interactive UI el
 
 ## Links
 
-- Live demo:
-- Source code:
+- Live demo: https://frontend-barber-page.vercel.app
+- Source code: https://github.com/G3rzson/frontend_barber_page/tree/main/nextjs
 
 ## Project Goals
 
