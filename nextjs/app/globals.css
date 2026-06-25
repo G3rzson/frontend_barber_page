@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer components {
+  .section {
+    @apply bg-zinc-950 pt-28 px-4;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold mb-8;
+  }
+}
+
+/* autofill settings */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fcd34d; /* szöveg színe */
+  caret-color: #fcd34d;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset; /* háttér színe */
+  box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 9999s ease-out 0s;
+}
