@@ -5,7 +5,7 @@ The focus is clean visual design, responsive behavior, and practical interactive
 
 ## Links
 
-- Live demo:
+- Live demo: https://frontend-barber-page-react.vercel.app
 - Source code (React version): https://github.com/G3rzson/frontend_barber_page/tree/main/react
 
 ## Project Goals
