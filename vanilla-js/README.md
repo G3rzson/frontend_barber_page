@@ -1,42 +1,54 @@
-# BarbeR – Landing Page | Frontend Only
+# Barber Landing Page - Vanilla JS
 
-Simple, responsive barber landing page built with **Bootstrap** + custom CSS.
+This project is a modern, single-page barber landing page built with plain HTML, CSS, and vanilla JavaScript.
+The focus is a clean visual style, responsive behavior, and simple interactive UI patterns without any framework.
 
-## Technologies
+## Links
+
+- Live demo:
+- Source code: https://github.com/G3rzson/frontend_barber_page/tree/main/vanilla-js
+
+## Project Goals
+
+- Build a realistic service-based landing page using only native web technologies.
+- Keep the structure simple and easy to understand.
+- Generate repeated UI sections from data arrays instead of duplicating markup.
+- Provide a responsive mobile navigation and a clear one-page layout.
+
+## Tech Stack
 
 - HTML5
 - CSS3
-- JavaScript (vanilla)
-- Bootstrap 5 (CDN)
+- Vanilla JavaScript
+- Google Fonts
 
 ## Features
 
-- Responsive navbar with mobile view
-- Gallery implemented with Bootstrap carousel
-- Services/prices cards using Bootstrap grid
-- FAQ (collapse) with expandable questions
-- Contact form: client-side validation + feedback modal
-- "Back to top" button
+- Fixed header with desktop navigation.
+- Full-screen mobile navigation layer.
+- Hero section with strong visual focus.
+- Responsive contact section.
+- Data-driven navigation links generated from `data.js`.
+- Separate utility functions for rendering navigation items.
 
-## Accessibility & UX
+## Notes
 
-- Skip link for keyboard navigation
-- Decorative icons hidden from screen readers (`aria-hidden`)
-- Modals enhanced with `aria-describedby` attributes
-- Scrollbar space maintained when modals open (reduces layout shifts)
-
-## Performance
-
-- Gallery images use `loading="lazy"` + `decoding="async"`
-
-## Running Locally
-
-1. Clone the repository
-2. Open the project folder in VS Code
-3. Install the **Live Server** extension
-4. Right-click on `index.html` and select **Open with Live Server**
+- This is a frontend-only project with static data.
+- The appointment flow is not implemented as a backend feature.
+- The mobile navigation is intentionally built with custom JavaScript instead of a framework.
 
 ## Future Improvements
 
-- Appointment booking system is not yet implemented (currently a placeholder modal)
-- Form submission currently does not send emails / save to backend (UI feedback only)
+- Add smooth open/close animations for the mobile menu.
+- Add form validation and feedback states.
+- Connect the project to a backend for real booking handling.
+
+## License
+
+This project was created for learning and portfolio purposes.
+
+## Author
+
+G3rzson
+
+- GitHub: [@G3rzson](https://github.com/G3rzson)

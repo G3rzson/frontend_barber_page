@@ -6,24 +6,13 @@ It is structured as a portfolio monorepo to showcase different frontend stacks a
 ## Repository Structure
 
 - [nextjs](nextjs): Next.js App Router implementation (TypeScript, Tailwind, Motion).
-- [react](react): Vite + React implementation.
+- [react](react): Vite + React implementation. (TypeScript, Bootstrap, Motion).
 - [react-native](react-native): React Native / Expo mobile adaptation.
 - [vanilla-js](vanilla-js): Plain HTML/CSS/JavaScript implementation.
 
 ## Github repository
 
 - https://github.com/G3rzson/frontend_barber_page
-
-## Tech Overview
-
-- Next.js
-- React
-- React Native (Expo)
-- TypeScript
-- Tailwind CSS
-- Motion
-- Lucide React
-- Vanilla JavaScript
 
 ## Notes
 
