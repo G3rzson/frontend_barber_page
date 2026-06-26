@@ -1,75 +1,72 @@
-# React + TypeScript + Vite
+# Barber Landing Page - Portfolio Project (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a modern, single-page barber landing page built for portfolio purposes.
+The focus is clean visual design, responsive behavior, and practical interactive UI patterns.
 
-Currently, two official plugins are available:
+## Links
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Live demo:
+- Source code (React version): https://github.com/G3rzson/frontend_barber_page/tree/main/react
 
-## React Compiler
+## Project Goals
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Build a realistic service-based landing page frontend with React.
+- Keep the codebase component-driven and easy to extend.
+- Provide strong UX with smooth one-page navigation, booking flow, and clear feedback states.
+- Prepare a solid frontend foundation for future backend integration.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- Bootstrap 5
+- React-Bootstrap (Modal)
+- Motion (animations)
+- Lucide React (icons)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Hero section with strong visual emphasis.
+- Services section with pricing and duration cards.
+- Barber profiles with image cards.
+- Work gallery implemented with Bootstrap Carousel.
+- Opening hours in a semantic table.
+- FAQ section implemented with Bootstrap Accordion.
+- Contact form using Bootstrap Floating Labels.
+- Appointment booking flow with:
+- service selection,
+- barber selection,
+- time slot selection,
+- modal interaction,
+- toast feedback after booking action.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Key Technical Decisions
 
-```
+- Reusable UI components (Header, Modal, Services, Barbers, Works, Opening, Info, Contacts).
+- Centralized static content in `src/constants/data.ts`.
+- Bootstrap-first UI approach for consistency and faster iteration.
+- React-Bootstrap modal for stable controlled behavior in React.
+- Anchor-based one-page navigation for quick section access.
+- Motion-based transitions for selected UI feedback (for example toast).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Notes
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This is currently a frontend-focused portfolio project with static data.
+The booking flow demonstrates UI logic only; backend processing is not integrated yet.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Future Improvements
 
-```
+- Backend API integration for real booking processing.
+- Dynamic time slot availability from a database.
+- Stronger form validation and server-side error handling.
+
+## License
+
+This project was created for learning and portfolio purposes.
+
+## Author
+
+G3rzson
+
+- GitHub: [@G3rzson](https://github.com/G3rzson)
