@@ -5,7 +5,7 @@ The focus is a clean visual style, responsive behavior, and simple interactive U
 
 ## Links
 
-- Live demo:
+- Live demo: https://frontend-barber-page-vanilla.vercel.app
 - Source code: https://github.com/G3rzson/frontend_barber_page/tree/main/vanilla-js
 
 ## Project Goals
