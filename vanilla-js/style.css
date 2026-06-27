@@ -7,10 +7,22 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-brand: orange;
+  --color-brand-hover: rgb(255, 234, 50);
+  --color-black: #000;
+  --color-surface: #111;
+  --color-muted: #6b7280;
+  --color-muted-2: #4b5563;
+  --color-light: #e5e7eb;
+  --overlay-soft: rgba(0, 0, 0, 0.5);
+  --overlay-strong: rgba(0, 0, 0, 0.7);
+}
+
 body {
   font-family: Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #000;
-  color: orange;
+  background-color: var(--color-black);
+  color: var(--color-brand);
   position: relative;
 }
 
@@ -46,11 +58,12 @@ h2 {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 a {
   text-decoration: none;
-  color: orange;
+  color: var(--color-brand);
 }
 
 ul {
@@ -90,7 +103,7 @@ header {
   transition: color 0.3s ease;
 }
 .nav-link:hover {
-  color: rgb(255, 234, 50);
+  color: var(--color-brand-hover);
 }
 @media screen and (max-width: 576px) {
   .nav-links .nav-link {
@@ -101,7 +114,7 @@ header {
 .menu-toggle {
   display: none;
   cursor: pointer;
-  background: orange;
+  background: var(--color-brand);
   padding: 0.5rem;
   border-radius: 0.25rem;
   border: none;
@@ -110,7 +123,7 @@ header {
 }
 .menu-toggle:hover,
 .mobile-nav-close:hover {
-  background: rgb(255, 234, 50);
+  background: var(--color-brand-hover);
 }
 @media screen and (max-width: 576px) {
   .menu-toggle {
@@ -129,6 +142,25 @@ header {
   align-items: center;
   justify-content: center;
   padding: 4rem 1.5rem 2rem;
+  opacity: 0;
+  transform: translateY(-12px) scale(0.98);
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease,
+    visibility 0s linear 0.28s;
+}
+
+.mobile-nav.is-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease,
+    visibility 0s linear 0s;
 }
 
 .hidden {
@@ -141,8 +173,21 @@ header {
   justify-content: center;
   gap: 2rem;
   display: flex;
-  color: orange;
+  color: var(--color-brand);
   font-size: 1.5rem;
+}
+
+.mobile-nav-links li {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.mobile-nav.is-open .mobile-nav-links li {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .mobile-nav-close {
@@ -150,7 +195,7 @@ header {
   top: 26px;
   right: 1rem;
   cursor: pointer;
-  background: orange;
+  background: var(--color-brand);
   padding: 0.5rem;
   border-radius: 0.25rem;
   border: none;
@@ -180,8 +225,8 @@ header {
 }
 
 .apointment-btn {
-  background-color: orange;
-  color: #000;
+  background-color: var(--color-brand);
+  color: var(--color-black);
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.25rem;
@@ -189,5 +234,654 @@ header {
   transition: background-color 0.3s ease;
 }
 .apointment-btn:hover {
-  background-color: rgb(255, 234, 50);
+  background-color: var(--color-brand-hover);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mobile-nav,
+  .mobile-nav-links li {
+    transition: none;
+    transform: none;
+  }
+}
+
+.section {
+  background-color: var(--color-black);
+  padding-top: 7rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* autofill settings */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fcd34d; /* szöveg színe */
+  caret-color: #fcd34d;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset; /* háttér színe */
+  box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 9999s ease-out 0s;
+}
+
+.services-container,
+.barbers-container {
+  padding: 0.5rem;
+  display: grid;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.service-list-item,
+.barbers-list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid var(--color-brand);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.services-container {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 576px) {
+  .services-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .services-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.service-list-item {
+  background-color: var(--overlay-soft);
+  text-align: center;
+  padding: 1rem;
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.service-price,
+.service-time {
+  margin: 0;
+}
+
+.service-book-btn {
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--color-brand);
+  color: var(--color-surface);
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.service-book-btn:hover:not(:disabled) {
+  background-color: var(--color-brand-hover);
+}
+
+.service-book-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.barbers-container {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 576px) {
+  .barbers-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .barbers-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.barbers-list-item {
+  background-color: var(--overlay-soft);
+  overflow: hidden;
+  padding: 0;
+  gap: 0;
+}
+
+.barber-image-wrap {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.barber-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.barber-body {
+  padding: 0.9rem;
+}
+
+.barber-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.price {
+  border-top: 1px solid var(--color-brand);
+  border-bottom: 1px solid var(--color-brand);
+  padding: 0.5rem;
+}
+
+.opening-card {
+  width: 100%;
+  max-width: 24rem;
+  margin: 0 auto;
+  border: 1px solid var(--color-brand);
+  border-radius: 8px;
+  background-color: var(--overlay-soft);
+  padding: 0.5rem 0.75rem;
+}
+
+.works-carousel {
+  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto;
+  border: 1px solid var(--color-brand);
+  border-radius: 10px;
+  background-color: var(--overlay-soft);
+  overflow: hidden;
+  position: relative;
+}
+
+.works-viewport {
+  width: 100%;
+  height: clamp(450px, 42vh, 650px);
+  overflow: hidden;
+}
+
+.works-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+.works-slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.works-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.works-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.55);
+  color: var(--color-brand);
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.works-control:hover {
+  background-color: rgba(255, 165, 0, 0.2);
+}
+
+.works-control-prev {
+  left: 0.6rem;
+}
+
+.works-control-next {
+  right: 0.6rem;
+}
+
+.works-indicators {
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.45rem;
+}
+
+.works-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--color-brand);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.works-indicator.active {
+  background-color: var(--color-brand);
+}
+
+.info-container {
+  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.info-list-item {
+  border: 1px solid var(--color-brand);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--overlay-soft);
+}
+
+.info-heading {
+  margin: 0;
+}
+
+.info-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: none;
+  background: transparent;
+  color: var(--color-brand);
+  text-align: left;
+  padding: 0.9rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.info-question::after {
+  content: "▾";
+  font-size: 1rem;
+  line-height: 1;
+  transform: rotate(0deg);
+  transition: transform 0.25s ease;
+}
+
+.info-question[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.info-answer {
+  padding: 0 1rem 1rem;
+}
+
+.info-answer-text {
+  color: #1ecf6b;
+}
+
+.opening-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.opening-row {
+  border-bottom: 1px solid rgba(255, 165, 0, 0.35);
+}
+
+.opening-row-last {
+  border-bottom: none;
+}
+
+.opening-day,
+.opening-hours-value {
+  padding: 0.6rem 0;
+}
+
+.opening-day {
+  text-align: left;
+  font-weight: 600;
+}
+
+.opening-hours-value {
+  text-align: right;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.contacts-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid var(--color-brand);
+  border-radius: 8px;
+  background-color: var(--overlay-soft);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  width: 100%;
+  border: 1px solid #6c757d;
+  border-radius: 6px;
+  background-color: var(--color-surface);
+  color: var(--color-brand);
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.send-btn {
+  width: 100%;
+  background-color: var(--color-brand);
+  color: var(--color-black);
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+  background-color: var(--color-brand-hover);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlay-strong);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    visibility 0s linear 0.28s;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 0.28s ease,
+    visibility 0s linear 0s;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-brand);
+  border-radius: 10px;
+  padding: 1.5rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
+
+.modal-overlay.is-open .modal-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-brand);
+  background: transparent;
+  color: var(--color-brand);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-title {
+  margin-top: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.modal-text {
+  margin-bottom: 0;
+}
+
+.appointment-modal-content {
+  max-width: 760px;
+}
+
+.appointment-label {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  margin: 0.8rem 0 0.45rem;
+}
+
+.appointment-services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media screen and (min-width: 576px) {
+  .appointment-services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.appointment-option-button {
+  width: 100%;
+  border: 1px solid var(--color-brand);
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--color-brand);
+  padding: 0.65rem 0.75rem;
+  cursor: pointer;
+}
+
+.appointment-option-button.is-selected {
+  background-color: var(--color-brand);
+  color: var(--color-surface);
+}
+
+.appointment-barbers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+@media screen and (min-width: 576px) {
+  .appointment-barbers-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .appointment-barbers-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.appointment-barber-button {
+  width: 100%;
+  border: 1px solid var(--color-muted);
+  border-radius: 6px;
+  background-color: var(--color-surface);
+  color: var(--color-light);
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+.appointment-barber-button.is-selected {
+  border-color: var(--color-brand);
+}
+
+.appointment-barber-image-wrap {
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--color-muted-2);
+}
+
+.appointment-barber-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.appointment-barber-name {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.appointment-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+@media screen and (min-width: 576px) {
+  .appointment-slots-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .appointment-slots-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.appointment-slot-button {
+  width: 100%;
+  border: 1px solid var(--color-brand);
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--color-brand);
+  padding: 0.55rem 0.5rem;
+  cursor: pointer;
+}
+
+.appointment-slot-button.is-selected {
+  background-color: var(--color-brand);
+  color: var(--color-surface);
+}
+
+.appointment-slot-button.is-booked {
+  border-color: var(--color-muted);
+  background-color: var(--color-muted);
+  color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.appointment-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media screen and (min-width: 576px) {
+  .appointment-form {
+    flex-direction: row;
+  }
+}
+
+.appointment-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  z-index: 1300;
+  border: 1px solid var(--color-brand);
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  color: var(--color-brand);
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+footer {
+  padding: 2rem 1rem 1rem;
+}
+.footer-text {
+  text-align: center;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: var(--color-brand);
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: none; /* Initially hidden */
+  z-index: 10;
 }

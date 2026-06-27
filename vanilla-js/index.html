@@ -23,11 +23,16 @@
 
       <nav><ul id="nav-links" class="nav-links"></ul></nav>
 
-      <button id="menu-toggle" class="menu-toggle">
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
         <img src="public/icons/menu.png" alt="Menu Icon" class="icon" />
       </button>
 
-      <nav id="mobile-nav" class="mobile-nav hidden">
+      <nav id="mobile-nav" class="mobile-nav">
         <button type="button" id="mobile-nav-close" class="mobile-nav-close">
           <img src="public/icons/x.png" alt="Close Icon" class="icon" />
         </button>
@@ -50,5 +55,220 @@
         <button type="button" class="apointment-btn">Időpont foglalás</button>
       </div>
     </section>
+
+    <section class="section" id="services">
+      <h2>Szolgáltatások</h2>
+
+      <ul id="services-container" class="services-container"></ul>
+    </section>
+
+    <section class="section" id="barbers">
+      <h2>Borbélyok</h2>
+
+      <ul id="barbers-container" class="barbers-container"></ul>
+    </section>
+
+    <section class="section" id="works">
+      <h2>Munkáink</h2>
+
+      <div class="works-carousel" aria-label="Munkáink galéria">
+        <div class="works-viewport">
+          <div id="works-track" class="works-track"></div>
+        </div>
+
+        <button
+          type="button"
+          id="works-prev"
+          class="works-control works-control-prev"
+          aria-label="Előző kép"
+        >
+          &#10094;
+        </button>
+
+        <button
+          type="button"
+          id="works-next"
+          class="works-control works-control-next"
+          aria-label="Következő kép"
+        >
+          &#10095;
+        </button>
+
+        <div id="works-indicators" class="works-indicators"></div>
+      </div>
+    </section>
+
+    <section class="section" id="opening-hours">
+      <h2>Nyitvatartás</h2>
+
+      <div class="opening-card">
+        <table class="opening-table">
+          <caption class="visually-hidden">
+            Heti nyitvatartás
+          </caption>
+          <tbody id="opening-hours-container"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <h2>Vedd fel velunk a kapcsolatot</h2>
+
+      <form id="contacts-form" class="contacts-form">
+        <div class="form-group">
+          <label for="name">Nev</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            autocomplete="name"
+            placeholder="Nev"
+            required
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            placeholder="E-mail"
+            required
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Uzenet</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Uzenet"
+            required
+            class="form-control"
+          ></textarea>
+        </div>
+
+        <button id="contacts-send-btn" type="button" class="send-btn">
+          Kuldes
+        </button>
+      </form>
+    </section>
+
+    <section class="section" id="info">
+      <h2>Gyakori kérdések</h2>
+
+      <ul id="info-container" class="info-container"></ul>
+    </section>
+
+    <button id="back-to-top" class="back-to-top">
+      <img
+        src="public/icons/arrow-big-up.svg"
+        alt="Back to Top Icon"
+        class="icon"
+      />
+    </button>
+
+    <footer>
+      <p class="footer-text">
+        Barber &copy; Copyright 2024. Minden jog fenntartva
+      </p>
+    </footer>
+
+    <div
+      id="contacts-modal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="contacts-modal-title"
+    >
+      <div class="modal-content">
+        <button
+          type="button"
+          id="contacts-modal-close"
+          class="modal-close"
+          aria-label="Modal bezarasa"
+        >
+          x
+        </button>
+
+        <h2 id="contacts-modal-title" class="modal-title">
+          A megadott adatok nem kerultek feldolgozasra!
+        </h2>
+
+        <p class="modal-text">Ez a funkcio meg nincs implementalva.</p>
+      </div>
+    </div>
+
+    <div
+      id="appointment-modal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="appointment-modal-title"
+    >
+      <div class="modal-content appointment-modal-content">
+        <button
+          type="button"
+          id="appointment-modal-close"
+          class="modal-close"
+          aria-label="Modal bezarasa"
+        >
+          x
+        </button>
+
+        <h2 id="appointment-modal-title" class="visually-hidden">
+          Idopont foglalas
+        </h2>
+
+        <p class="appointment-label">Valassz szolgaltatast:</p>
+        <div
+          id="appointment-services-grid"
+          class="appointment-services-grid"
+        ></div>
+
+        <p class="appointment-label">Valassz borbelyt:</p>
+        <div
+          id="appointment-barbers-grid"
+          class="appointment-barbers-grid"
+        ></div>
+
+        <p class="appointment-label">Valassz szabad idopontot:</p>
+        <div id="appointment-slots-grid" class="appointment-slots-grid"></div>
+
+        <form id="appointment-form" class="appointment-form" novalidate>
+          <input
+            id="appointment-email"
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            required
+            class="form-control"
+          />
+          <button
+            type="button"
+            id="appointment-submit"
+            class="service-book-btn"
+            disabled
+          >
+            Foglalas
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div
+      id="appointment-toast"
+      class="appointment-toast hidden"
+      role="status"
+      aria-live="polite"
+    >
+      A kivalasztott adatok nem kerultek feldolgozasra!
+    </div>
   </body>
 </html>

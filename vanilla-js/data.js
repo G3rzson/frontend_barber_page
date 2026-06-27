@@ -1,10 +1,10 @@
 export const NAVLINKS = [
-  { id: 1, name: "Szolgáltatások", href: "/#services" },
-  { id: 2, name: "Borbélyok", href: "/#barbers" },
-  { id: 3, name: "Munkáink", href: "/#works" },
-  { id: 4, name: "Nyitvatartás", href: "/#opening-hours" },
-  { id: 5, name: "Kapcsolatok", href: "/#contacts" },
-  { id: 6, name: "Infó", href: "/#info" },
+  { id: 1, name: "Szolgáltatások", href: "#services" },
+  { id: 2, name: "Borbélyok", href: "#barbers" },
+  { id: 3, name: "Munkáink", href: "#works" },
+  { id: 4, name: "Nyitvatartás", href: "#opening-hours" },
+  { id: 5, name: "Kapcsolatok", href: "#contacts" },
+  { id: 6, name: "Infó", href: "#info" },
 ];
 
 export const SERVICES = [
@@ -39,7 +39,7 @@ export const OPENING_HOURS = [
   { id: 70000, day: "Vasárnap", hours: "Zárva" },
 ];
 
-export const INFO = [
+export const INFOS = [
   {
     id: 100000,
     question: "Milyen fizetési lehetőségek vannak?",
